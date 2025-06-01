@@ -728,40 +728,70 @@
           submitBtn.textContent = "Wird gesendet...";
 
           try {
+            // Use FormData to avoid CORS issues
+            const formData = new FormData();
+            formData.append("feedback", feedbackText);
+            formData.append("userAgent", navigator.userAgent);
+            formData.append("url", window.location.href);
+
             // Replace 'YOUR_GOOGLE_APPS_SCRIPT_URL' with your actual script URL
-            const response = await fetch(
-              "https://script.google.com/macros/s/AKfycbxH71JJ-dnMEJAaV5Z3SKzpgjHXqjWGpnigijQaH1_g1W86GHMFUdYrKB1TCCS4PvYj/exec",
-              {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                  feedback: feedbackText,
-                  userAgent: navigator.userAgent,
-                  url: window.location.href,
-                  timestamp: new Date().toISOString(),
-                }),
-              }
-            );
+            const response = await fetch("YOUR_GOOGLE_APPS_SCRIPT_URL", {
+              method: "POST",
+              body: formData,
+            });
 
             const result = await response.json();
 
             if (result.status === "success") {
-              alert("Vielen Dank für dein Feedback! 🙏");
-              document.getElementById("feedbackText").value = "";
+              // Show success animation
+              submitBtn.style.background =
+                "linear-gradient(145deg, #28a745, #20c997)";
+              submitBtn.textContent = "✅ Gesendet!";
+
+              setTimeout(() => {
+                alert("Vielen Dank für dein Feedback! 🙏");
+                document.getElementById("feedbackText").value = "";
+                submitBtn.style.background =
+                  "linear-gradient(145deg, #667eea, #764ba2)";
+                submitBtn.textContent = "Feedback senden";
+              }, 1000);
             } else {
               throw new Error(result.message || "Unbekannter Fehler");
             }
           } catch (error) {
             console.error("Feedback error:", error);
-            alert(
-              "Fehler beim Senden des Feedbacks. Bitte versuche es später erneut."
-            );
+
+            // Try alternative method using URL parameters (GET request)
+            try {
+              const params = new URLSearchParams({
+                feedback: feedbackText,
+                userAgent: navigator.userAgent,
+                url: window.location.href,
+              });
+
+              const fallbackResponse = await fetch(
+                `https://script.google.com/macros/s/AKfycbyLGTvdPfhPggCc9jpYzcYtEfpWPj1QR_8u5Z1TGMDQikvUFAYR8RKai9DPlNLB76Jb/exec?${params.toString()}`
+              );
+              const fallbackResult = await fallbackResponse.json();
+
+              if (fallbackResult.status === "success") {
+                alert("Vielen Dank für dein Feedback! 🙏");
+                document.getElementById("feedbackText").value = "";
+              } else {
+                throw new Error("Fallback failed");
+              }
+            } catch (fallbackError) {
+              console.error("Fallback error:", fallbackError);
+              alert(
+                "Fehler beim Senden des Feedbacks. Bitte versuche es später erneut."
+              );
+            }
           } finally {
             // Re-enable button
             submitBtn.disabled = false;
-            submitBtn.textContent = "Feedback senden";
+            if (submitBtn.textContent !== "✅ Gesendet!") {
+              submitBtn.textContent = "Feedback senden";
+            }
           }
         });
 
