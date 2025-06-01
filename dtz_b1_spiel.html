@@ -711,19 +711,57 @@
       // Feedback form handler
       document
         .getElementById("feedbackForm")
-        .addEventListener("submit", function (e) {
+        .addEventListener("submit", async function (e) {
           e.preventDefault();
           const feedbackText = document
             .getElementById("feedbackText")
             .value.trim();
+          const submitBtn = document.querySelector(".feedback-submit");
 
-          if (feedbackText) {
-            // Here you would typically send the feedback to your server
-            // For demo purposes, we'll just show a success message
-            alert("Vielen Dank für dein Feedback! 🙏");
-            document.getElementById("feedbackText").value = "";
-          } else {
+          if (!feedbackText) {
             alert("Bitte gib dein Feedback ein.");
+            return;
+          }
+
+          // Disable button and show loading
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Wird gesendet...";
+
+          try {
+            // Replace 'YOUR_GOOGLE_APPS_SCRIPT_URL' with your actual script URL
+            const response = await fetch(
+              "https://script.google.com/macros/s/AKfycbxH71JJ-dnMEJAaV5Z3SKzpgjHXqjWGpnigijQaH1_g1W86GHMFUdYrKB1TCCS4PvYj/exec",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  feedback: feedbackText,
+                  userAgent: navigator.userAgent,
+                  url: window.location.href,
+                  timestamp: new Date().toISOString(),
+                }),
+              }
+            );
+
+            const result = await response.json();
+
+            if (result.status === "success") {
+              alert("Vielen Dank für dein Feedback! 🙏");
+              document.getElementById("feedbackText").value = "";
+            } else {
+              throw new Error(result.message || "Unbekannter Fehler");
+            }
+          } catch (error) {
+            console.error("Feedback error:", error);
+            alert(
+              "Fehler beim Senden des Feedbacks. Bitte versuche es später erneut."
+            );
+          } finally {
+            // Re-enable button
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Feedback senden";
           }
         });
 
