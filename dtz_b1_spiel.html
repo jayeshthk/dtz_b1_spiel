@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DTZ B1 Vokabeltrainer</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        color: #333;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        flex: 1;
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 30px;
+        color: white;
+      }
+
+      .header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        animation: fadeInDown 0.8s ease-out;
+      }
+
+      .progress-container {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 15px;
+        padding: 20px;
+        margin-bottom: 30px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        animation: fadeInUp 0.8s ease-out;
+      }
+
+      .stats {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      .stat {
+        text-align: center;
+        color: white;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 15px;
+        border-radius: 10px;
+        min-width: 120px;
+        backdrop-filter: blur(5px);
+      }
+
+      .stat-number {
+        font-size: 1.8rem;
+        font-weight: bold;
+        display: block;
+      }
+
+      .stat-label {
+        font-size: 0.9rem;
+        opacity: 0.9;
+      }
+
+      .progress-bar {
+        width: 100%;
+        height: 12px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 6px;
+        overflow: hidden;
+        margin-top: 15px;
+      }
+
+      .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #00f260, #0575e6);
+        border-radius: 6px;
+        transition: width 0.5s ease;
+        width: 0%;
+      }
+
+      .game-card {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+        animation: slideInUp 0.6s ease-out;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .game-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #667eea, #764ba2);
+      }
+
+      #word {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin: 30px 0;
+        color: #2c3e50;
+        text-align: center;
+        min-height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: pulse 0.6s ease-in-out;
+      }
+
+      .choices {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin: 30px 0;
+      }
+
+      .choices button {
+        padding: 18px 25px;
+        font-size: 1.1rem;
+        border: 2px solid #e0e0e0;
+        border-radius: 12px;
+        cursor: pointer;
+        background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+        color: #495057;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .choices button:hover:not(:disabled) {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        border-color: #667eea;
+      }
+
+      .choices button:active {
+        transform: translateY(0);
+      }
+
+      .choices button.correct {
+        background: linear-gradient(145deg, #d4edda, #c3e6cb);
+        border-color: #28a745;
+        color: #155724;
+        animation: correctPulse 0.6s ease;
+      }
+
+      .choices button.incorrect {
+        background: linear-gradient(145deg, #f8d7da, #f1aeb5);
+        border-color: #dc3545;
+        color: #721c24;
+        animation: shake 0.6s ease;
+      }
+
+      .choices button:disabled {
+        cursor: not-allowed;
+        opacity: 0.7;
+      }
+
+      #feedback {
+        text-align: center;
+        font-size: 1.3rem;
+        margin: 25px 0;
+        font-weight: 600;
+        min-height: 30px;
+        animation: fadeIn 0.5s ease;
+      }
+
+      .feedback-correct {
+        color: #28a745;
+      }
+
+      .feedback-incorrect {
+        color: #dc3545;
+      }
+
+      #next {
+        background: linear-gradient(145deg, #667eea, #764ba2);
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        font-size: 1.1rem;
+        border-radius: 10px;
+        cursor: pointer;
+        display: none;
+        margin: 20px auto;
+        transition: all 0.3s ease;
+        font-weight: 600;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+      }
+
+      #next:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+      }
+
+      .achievement {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: linear-gradient(145deg, #ffd700, #ffed4e);
+        color: #333;
+        padding: 15px 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+        transform: translateX(300px);
+        transition: transform 0.5s ease;
+        z-index: 1000;
+        font-weight: bold;
+      }
+
+      .achievement.show {
+        transform: translateX(0);
+      }
+
+      .streak-counter {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 1.1rem;
+        color: #ff6b6b;
+        font-weight: bold;
+      }
+
+      .completion-card {
+        text-align: center;
+        padding: 40px;
+        background: linear-gradient(145deg, #667eea, #764ba2);
+        color: white;
+        border-radius: 20px;
+        margin: 20px 0;
+      }
+
+      .completion-emoji {
+        font-size: 4rem;
+        margin-bottom: 20px;
+        animation: bounce 1s infinite;
+      }
+
+      /* Support Section */
+      .support-section {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 15px;
+        padding: 30px;
+        margin-top: 40px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .support-title {
+        text-align: center;
+        font-size: 1.8rem;
+        color: #2c3e50;
+        margin-bottom: 25px;
+        font-weight: bold;
+      }
+
+      .support-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        align-items: start;
+      }
+
+      .coffee-section,
+      .feedback-section {
+        text-align: center;
+      }
+
+      .coffee-btn {
+        background: linear-gradient(145deg, #ff6b6b, #ee5a24);
+        color: white;
+        border: none;
+        padding: 15px 25px;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+        font-weight: 600;
+        box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+      }
+
+      .coffee-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+      }
+
+      .feedback-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .feedback-input {
+        padding: 12px;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+        resize: vertical;
+        min-height: 100px;
+      }
+
+      .feedback-input:focus {
+        outline: none;
+        border-color: #667eea;
+      }
+
+      .feedback-submit {
+        background: linear-gradient(145deg, #667eea, #764ba2);
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 600;
+      }
+
+      .feedback-submit:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+      }
+
+      /* Animations */
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideInUp {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+      }
+
+      @keyframes correctPulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+      }
+
+      @keyframes shake {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        25% {
+          transform: translateX(-5px);
+        }
+        75% {
+          transform: translateX(5px);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-10px);
+        }
+        60% {
+          transform: translateY(-5px);
+        }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .container {
+          padding: 15px;
+        }
+
+        .header h1 {
+          font-size: 2rem;
+        }
+
+        .choices {
+          grid-template-columns: 1fr;
+        }
+
+        .stats {
+          justify-content: center;
+        }
+
+        .support-content {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        #word {
+          font-size: 2rem;
+        }
+      }
+
+      .loading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 200px;
+      }
+
+      .spinner {
+        border: 4px solid rgba(102, 126, 234, 0.3);
+        border-top: 4px solid #667eea;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>🎯 DTZ B1 Vokabeltrainer</h1>
+        <p>Meistere deutsche Vokabeln spielerisch!</p>
+      </div>
+
+      <div class="progress-container">
+        <div class="stats">
+          <div class="stat">
+            <span class="stat-number" id="currentWord">0</span>
+            <span class="stat-label">Aktuell</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number" id="totalWords">0</span>
+            <span class="stat-label">Gesamt</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number" id="correctCount">0</span>
+            <span class="stat-label">Richtig</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number streak-counter" id="streak">🔥 0</span>
+            <span class="stat-label">Serie</span>
+          </div>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+      </div>
+
+      <div class="game-card">
+        <div id="word" class="loading">
+          <div class="spinner"></div>
+        </div>
+        <div class="choices"></div>
+        <div id="feedback"></div>
+        <button id="next">Weiter →</button>
+      </div>
+
+      <div class="support-section">
+        <h2 class="support-title">💝 Unterstütze dieses Projekt</h2>
+        <div class="support-content">
+          <div class="coffee-section">
+            <h3>☕ Kauf mir einen Kaffee</h3>
+            <p>Gefällt dir der Vokabeltrainer? Unterstütze die Entwicklung!</p>
+            <a
+              href="https://buymeacoffee.com/yourhandle"
+              class="coffee-btn"
+              target="_blank"
+            >
+              ☕ Kaffee spendieren
+            </a>
+          </div>
+
+          <div class="feedback-section">
+            <h3>💭 Dein Feedback</h3>
+            <form class="feedback-form" id="feedbackForm">
+              <textarea
+                class="feedback-input"
+                placeholder="Teile deine Gedanken, Vorschläge oder Ideen mit uns..."
+                id="feedbackText"
+              ></textarea>
+              <button type="submit" class="feedback-submit">
+                Feedback senden
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="achievement" id="achievement"></div>
+
+    <script>
+      let vocab = [];
+      let currentIndex = 0;
+      let correctAnswers = 0;
+      let streak = 0;
+      let maxStreak = 0;
+
+      const wordEl = document.getElementById("word");
+      const choicesEl = document.querySelector(".choices");
+      const feedbackEl = document.getElementById("feedback");
+      const nextBtn = document.getElementById("next");
+      const achievementEl = document.getElementById("achievement");
+
+      // Stats elements
+      const currentWordEl = document.getElementById("currentWord");
+      const totalWordsEl = document.getElementById("totalWords");
+      const correctCountEl = document.getElementById("correctCount");
+      const streakEl = document.getElementById("streak");
+      const progressFillEl = document.getElementById("progressFill");
+
+      function shuffle(array) {
+        return array.sort(() => Math.random() - 0.5);
+      }
+
+      function updateStats() {
+        currentWordEl.textContent = currentIndex + 1;
+        totalWordsEl.textContent = vocab.length;
+        correctCountEl.textContent = correctAnswers;
+        streakEl.textContent = `🔥 ${streak}`;
+
+        const progress = ((currentIndex + 1) / vocab.length) * 100;
+        progressFillEl.style.width = `${progress}%`;
+      }
+
+      function showAchievement(text) {
+        achievementEl.textContent = text;
+        achievementEl.classList.add("show");
+        setTimeout(() => {
+          achievementEl.classList.remove("show");
+        }, 3000);
+      }
+
+      function checkAchievements() {
+        if (streak === 5) {
+          showAchievement("🔥 5er-Serie! Du bist auf Feuer!");
+        } else if (streak === 10) {
+          showAchievement("⚡ 10er-Serie! Unglaublich!");
+        } else if (streak === 20) {
+          showAchievement("🚀 20er-Serie! Du bist ein Vokabel-Meister!");
+        }
+
+        if (correctAnswers === 10) {
+          showAchievement("🎯 10 richtige Antworten erreicht!");
+        } else if (correctAnswers === 25) {
+          showAchievement("🌟 25 richtige Antworten! Fantastisch!");
+        }
+      }
+
+      function showWord() {
+        if (currentIndex >= vocab.length) return;
+
+        feedbackEl.textContent = "";
+        feedbackEl.className = "";
+        nextBtn.style.display = "none";
+
+        const item = vocab[currentIndex];
+        wordEl.textContent = item.word;
+        wordEl.className = "";
+
+        choicesEl.innerHTML = "";
+        shuffle(item.options).forEach((option) => {
+          const btn = document.createElement("button");
+          btn.textContent = option;
+          btn.onclick = () => selectAnswer(btn, option === item.correct);
+          choicesEl.appendChild(btn);
+        });
+
+        updateStats();
+      }
+
+      function selectAnswer(button, isCorrect) {
+        const buttons = document.querySelectorAll(".choices button");
+        buttons.forEach((btn) => (btn.disabled = true));
+
+        if (isCorrect) {
+          button.classList.add("correct");
+          feedbackEl.textContent = "✅ Richtig!";
+          feedbackEl.className = "feedback-correct";
+          correctAnswers++;
+          streak++;
+          checkAchievements();
+        } else {
+          button.classList.add("incorrect");
+          feedbackEl.textContent =
+            "❌ Falsch! Richtige Antwort: " + vocab[currentIndex].correct;
+          feedbackEl.className = "feedback-incorrect";
+          streak = 0;
+        }
+
+        maxStreak = Math.max(maxStreak, streak);
+        nextBtn.style.display = "inline-block";
+        updateStats();
+      }
+
+      nextBtn.onclick = () => {
+        currentIndex++;
+        if (currentIndex < vocab.length) {
+          showWord();
+        } else {
+          showCompletion();
+        }
+      };
+
+      function showCompletion() {
+        const accuracy = Math.round((correctAnswers / vocab.length) * 100);
+
+        wordEl.innerHTML = `
+        <div class="completion-card">
+          <div class="completion-emoji">🎉</div>
+          <h2>Herzlichen Glückwunsch!</h2>
+          <p>Du hast alle ${vocab.length} Wörter geübt.</p>
+          <p><strong>Genauigkeit: ${accuracy}%</strong></p>
+          <p><strong>Längste Serie: ${maxStreak}</strong></p>
+          <button onclick="location.reload()" style="margin-top: 20px; padding: 12px 24px; background: white; color: #667eea; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">
+            🔄 Nochmal spielen
+          </button>
+        </div>
+      `;
+
+        choicesEl.innerHTML = "";
+        feedbackEl.textContent = "";
+        nextBtn.style.display = "none";
+
+        if (accuracy >= 90) {
+          showAchievement("🏆 Perfekte Leistung! 90%+ Genauigkeit!");
+        } else if (accuracy >= 75) {
+          showAchievement("⭐ Großartige Arbeit! 75%+ Genauigkeit!");
+        }
+      }
+
+      // Feedback form handler
+      document
+        .getElementById("feedbackForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const feedbackText = document
+            .getElementById("feedbackText")
+            .value.trim();
+
+          if (feedbackText) {
+            // Here you would typically send the feedback to your server
+            // For demo purposes, we'll just show a success message
+            alert("Vielen Dank für dein Feedback! 🙏");
+            document.getElementById("feedbackText").value = "";
+          } else {
+            alert("Bitte gib dein Feedback ein.");
+          }
+        });
+
+      // Load vocabulary data
+      fetch(
+        "https://gist.githubusercontent.com/deepcode-debug/da7e4ec19ebc56c802355d9784a7d4bc/raw/79900993fe53a769b82364e4d2e00af3ce825b47/deu_eng.json"
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          vocab = data;
+          vocab.sort(() => 0.5 - Math.random());
+          totalWordsEl.textContent = vocab.length;
+          showWord();
+        })
+        .catch((error) => {
+          wordEl.innerHTML = `
+          <div style="color: #dc3545; text-align: center;">
+            <h3>⚠️ Fehler beim Laden</h3>
+            <p>Die Vokabeln konnten nicht geladen werden.</p>
+            <button onclick="location.reload()" style="margin-top: 15px; padding: 10px 20px; background: #667eea; color: white; border: none; border-radius: 8px; cursor: pointer;">
+              🔄 Neu laden
+            </button>
+          </div>
+        `;
+          console.error("Fehler beim Laden:", error);
+        });
+    </script>
+  </body>
+</html>
