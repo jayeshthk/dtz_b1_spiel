@@ -40,6 +40,55 @@
         animation: fadeInDown 0.8s ease-out;
       }
 
+      .controls {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+      }
+
+      .control-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .control-label {
+        color: white;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      .language-selector,
+      .dataset-selector {
+        padding: 8px 15px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        font-size: 1rem;
+        cursor: pointer;
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+      }
+
+      .language-selector:hover,
+      .dataset-selector:hover,
+      .language-selector:focus,
+      .dataset-selector:focus {
+        border-color: rgba(255, 255, 255, 0.6);
+        background: rgba(255, 255, 255, 0.3);
+        outline: none;
+      }
+
+      .language-selector option,
+      .dataset-selector option {
+        background: #2c3e50;
+        color: white;
+      }
+
       .progress-container {
         background: rgba(255, 255, 255, 0.2);
         border-radius: 15px;
@@ -130,6 +179,16 @@
         animation: pulse 0.6s ease-in-out;
       }
 
+      .sentence-container {
+        background: #f8f9fa;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 20px 0;
+        border-left: 4px solid #667eea;
+        font-style: italic;
+        color: #495057;
+      }
+
       .choices {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -149,6 +208,8 @@
         font-weight: 500;
         position: relative;
         overflow: hidden;
+        text-align: center;
+        word-wrap: break-word;
       }
 
       .choices button:hover:not(:disabled) {
@@ -466,6 +527,11 @@
         #word {
           font-size: 2rem;
         }
+
+        .controls {
+          flex-direction: column;
+          align-items: center;
+        }
       }
 
       .loading {
@@ -501,6 +567,25 @@
         <p>Meistere deutsche Vokabeln spielerisch!</p>
       </div>
 
+      <div class="controls">
+        <div class="control-group">
+          <label class="control-label">Sprache / Language</label>
+          <select class="language-selector" id="languageSelector">
+            <option value="en">🇬🇧 English</option>
+            <option value="ru">🇷🇺 Русский</option>
+            <option value="ar">🇸🇦 العربية</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label">Übungsart / Exercise Type</label>
+          <select class="dataset-selector" id="datasetSelector">
+            <option value="vocabulary">📚 Vokabeln / Vocabulary</option>
+            <option value="grammar">📝 Grammatik / Grammar (German)</option>
+          </select>
+        </div>
+      </div>
+
       <div class="progress-container">
         <div class="stats">
           <div class="stat">
@@ -529,6 +614,11 @@
         <div id="word" class="loading">
           <div class="spinner"></div>
         </div>
+        <div
+          id="sentenceContainer"
+          class="sentence-container"
+          style="display: none"
+        ></div>
         <div class="choices"></div>
         <div id="feedback"></div>
         <button id="next">Weiter →</button>
@@ -574,12 +664,17 @@
       let correctAnswers = 0;
       let streak = 0;
       let maxStreak = 0;
+      let currentLanguage = "en";
+      let currentDataset = "vocabulary";
 
       const wordEl = document.getElementById("word");
+      const sentenceEl = document.getElementById("sentenceContainer");
       const choicesEl = document.querySelector(".choices");
       const feedbackEl = document.getElementById("feedback");
       const nextBtn = document.getElementById("next");
       const achievementEl = document.getElementById("achievement");
+      const languageSelector = document.getElementById("languageSelector");
+      const datasetSelector = document.getElementById("datasetSelector");
 
       // Stats elements
       const currentWordEl = document.getElementById("currentWord");
@@ -588,6 +683,50 @@
       const streakEl = document.getElementById("streak");
       const progressFillEl = document.getElementById("progressFill");
 
+      // Dataset URLs
+      const datasets = {
+        vocabulary: "merged", // Special flag to indicate merged dataset
+        grammar:
+          "https://gist.githubusercontent.com/deepcode-debug/9282a6d1142c1437bc613b06ac6a553d/raw/2a934fe9c0bda8b69236327d2b09e4b0d2fb45b7/deutsch_artikel..json",
+      };
+
+      // Individual dataset URLs for merging
+      const vocabularyDatasets = {
+        vocabulary_1:
+          "https://gist.githubusercontent.com/deepcode-debug/b3ffe0a46df3f90a63c48983c3d653ea/raw/8cba6f17cb6e902181e561ae3675471ff571802f/deutsch_ubung.json",
+        vocabulary_2:
+          "https://gist.githubusercontent.com/deepcode-debug/da7e4ec19ebc56c802355d9784a7d4bc/raw/79900993fe53a769b82364e4d2e00af3ce825b47/deu_eng.json",
+      };
+      function normalizeVocabularyItem(item, source) {
+        if (source === "vocabulary_1") {
+          // vocabulary_1 structure: {word, correct, correct_ru, correct_ar, options, options_ru, options_ar, sentence}
+          return {
+            word: item.word,
+            correct: item.correct,
+            correct_ru: item.correct_ru,
+            correct_ar: item.correct_ar,
+            options: item.options,
+            options_ru: item.options_ru,
+            options_ar: item.options_ar,
+            sentence: item.sentence,
+            source: "vocabulary_1",
+          };
+        } else if (source === "vocabulary_2") {
+          // vocabulary_2 structure: {word, correct, options} - only English
+          return {
+            word: item.word,
+            correct: item.correct,
+            correct_ru: item.correct, // Fallback to English if no Russian
+            correct_ar: item.correct, // Fallback to English if no Arabic
+            options: item.options,
+            options_ru: item.options, // Fallback to English options
+            options_ar: item.options, // Fallback to English options
+            sentence: item.sentence || null,
+            source: "vocabulary_2",
+          };
+        }
+        return item;
+      }
       function shuffle(array) {
         return array.sort(() => Math.random() - 0.5);
       }
@@ -634,17 +773,73 @@
         nextBtn.style.display = "none";
 
         const item = vocab[currentIndex];
-        wordEl.textContent = item.word;
+
+        if (currentDataset === "vocabulary") {
+          // Structure 1: Vocabulary
+          wordEl.textContent = item.word;
+
+          // Show sentence if available
+          if (item.sentence) {
+            sentenceEl.textContent = `Beispiel: ${item.sentence}`;
+            sentenceEl.style.display = "block";
+          } else {
+            sentenceEl.style.display = "none";
+          }
+
+          // Get correct answer and options based on language
+          let correctAnswer, options;
+
+          switch (currentLanguage) {
+            case "ru":
+              correctAnswer = item.correct_ru;
+              options = item.options_ru || item.options;
+              break;
+            case "ar":
+              correctAnswer = item.correct_ar;
+              options = item.options_ar || item.options;
+              break;
+            default:
+              correctAnswer = item.correct;
+              options = item.options;
+              break;
+          }
+
+          item.currentCorrect = correctAnswer;
+
+          choicesEl.innerHTML = "";
+          shuffle([...options]).forEach((option) => {
+            const btn = document.createElement("button");
+            btn.textContent = option;
+            btn.onclick = () => selectAnswer(btn, option === correctAnswer);
+            choicesEl.appendChild(btn);
+          });
+        } else {
+          // Structure 2: Grammar
+          wordEl.textContent = item.word;
+
+          // Show sentence with blank
+          if (item.sentence) {
+            sentenceEl.innerHTML = item.sentence.replace(
+              /___ /g,
+              '<strong style="color: #667eea;">___ </strong>'
+            );
+            sentenceEl.style.display = "block";
+          } else {
+            sentenceEl.style.display = "none";
+          }
+
+          item.currentCorrect = item.true;
+
+          choicesEl.innerHTML = "";
+          shuffle([...item.options]).forEach((option) => {
+            const btn = document.createElement("button");
+            btn.textContent = option;
+            btn.onclick = () => selectAnswer(btn, option === item.true);
+            choicesEl.appendChild(btn);
+          });
+        }
+
         wordEl.className = "";
-
-        choicesEl.innerHTML = "";
-        shuffle(item.options).forEach((option) => {
-          const btn = document.createElement("button");
-          btn.textContent = option;
-          btn.onclick = () => selectAnswer(btn, option === item.correct);
-          choicesEl.appendChild(btn);
-        });
-
         updateStats();
       }
 
@@ -661,8 +856,7 @@
           checkAchievements();
         } else {
           button.classList.add("incorrect");
-          feedbackEl.textContent =
-            "❌ Falsch! Richtige Antwort: " + vocab[currentIndex].correct;
+          feedbackEl.textContent = `❌ Falsch! Richtige Antwort: ${vocab[currentIndex].currentCorrect}`;
           feedbackEl.className = "feedback-incorrect";
           streak = 0;
         }
@@ -688,16 +882,17 @@
         <div class="completion-card">
           <div class="completion-emoji">🎉</div>
           <h2>Herzlichen Glückwunsch!</h2>
-          <p>Du hast alle ${vocab.length} Wörter geübt.</p>
+          <p>Du hast alle ${vocab.length} Aufgaben geübt.</p>
           <p><strong>Genauigkeit: ${accuracy}%</strong></p>
           <p><strong>Längste Serie: ${maxStreak}</strong></p>
-          <button onclick="location.reload()" style="margin-top: 20px; padding: 12px 24px; background: white; color: #667eea; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">
+          <button onclick="restartGame()" style="margin-top: 20px; padding: 12px 24px; background: white; color: #667eea; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">
             🔄 Nochmal spielen
           </button>
         </div>
       `;
 
         choicesEl.innerHTML = "";
+        sentenceEl.style.display = "none";
         feedbackEl.textContent = "";
         nextBtn.style.display = "none";
 
@@ -707,6 +902,148 @@
           showAchievement("⭐ Großartige Arbeit! 75%+ Genauigkeit!");
         }
       }
+
+      function restartGame() {
+        currentIndex = 0;
+        correctAnswers = 0;
+        streak = 0;
+        maxStreak = 0;
+        vocab.sort(() => 0.5 - Math.random());
+        showWord();
+      }
+      async function loadDatasetWithProgress() {
+        wordEl.innerHTML =
+          '<div class="loading"><div class="spinner"></div><p>Lade Vokabeln...</p></div>';
+        choicesEl.innerHTML = "";
+        sentenceEl.style.display = "none";
+        feedbackEl.textContent = "";
+        nextBtn.style.display = "none";
+
+        try {
+          if (currentDataset === "vocabulary") {
+            // Show progress
+            wordEl.innerHTML =
+              '<div class="loading"><div class="spinner"></div><p>Lade Vokabeldatensätze (1/2)...</p></div>';
+
+            const vocab1Response = await fetch(vocabularyDatasets.vocabulary_1);
+            const vocab1Data = await vocab1Response.json();
+
+            wordEl.innerHTML =
+              '<div class="loading"><div class="spinner"></div><p>Lade Vokabeldatensätze (2/2)...</p></div>';
+
+            const vocab2Response = await fetch(vocabularyDatasets.vocabulary_2);
+            const vocab2Data = await vocab2Response.json();
+
+            wordEl.innerHTML =
+              '<div class="loading"><div class="spinner"></div><p>Zusammenführen der Daten...</p></div>';
+
+            // Normalize and merge
+            const normalizedVocab1 = vocab1Data.map((item) =>
+              normalizeVocabularyItem(item, "vocabulary_1")
+            );
+            const normalizedVocab2 = vocab2Data.map((item) =>
+              normalizeVocabularyItem(item, "vocabulary_2")
+            );
+
+            vocab = [...normalizedVocab1, ...normalizedVocab2];
+            vocab.sort(() => 0.5 - Math.random());
+          } else {
+            const response = await fetch(datasets[currentDataset]);
+            vocab = await response.json();
+            vocab.sort(() => 0.5 - Math.random());
+          }
+
+          currentIndex = 0;
+          correctAnswers = 0;
+          streak = 0;
+          maxStreak = 0;
+          totalWordsEl.textContent = vocab.length;
+          showWord();
+        } catch (error) {
+          wordEl.innerHTML = `
+      <div style="color: #dc3545; text-align: center;">
+        <h3>⚠️ Fehler beim Laden</h3>
+        <p>Die Daten konnten nicht geladen werden.</p>
+        <button onclick="loadDataset()" style="margin-top: 15px; padding: 10px 20px; background: #667eea; color: white; border: none; border-radius: 8px; cursor: pointer;">
+          🔄 Neu laden
+        </button>
+      </div>
+    `;
+          console.error("Fehler beim Laden:", error);
+        }
+      }
+
+      async function loadDataset() {
+        wordEl.innerHTML =
+          '<div class="loading"><div class="spinner"></div></div>';
+        choicesEl.innerHTML = "";
+        sentenceEl.style.display = "none";
+        feedbackEl.textContent = "";
+        nextBtn.style.display = "none";
+
+        try {
+          if (currentDataset === "vocabulary") {
+            // Load and merge both vocabulary datasets
+            const [vocab1Response, vocab2Response] = await Promise.all([
+              fetch(vocabularyDatasets.vocabulary_1),
+              fetch(vocabularyDatasets.vocabulary_2),
+            ]);
+
+            const [vocab1Data, vocab2Data] = await Promise.all([
+              vocab1Response.json(),
+              vocab2Response.json(),
+            ]);
+
+            // Normalize and merge the datasets
+            const normalizedVocab1 = vocab1Data.map((item) =>
+              normalizeVocabularyItem(item, "vocabulary_1")
+            );
+            const normalizedVocab2 = vocab2Data.map((item) =>
+              normalizeVocabularyItem(item, "vocabulary_2")
+            );
+
+            // Combine and shuffle
+            vocab = [...normalizedVocab1, ...normalizedVocab2];
+            vocab.sort(() => 0.5 - Math.random());
+          } else {
+            // Load grammar dataset normally
+            const response = await fetch(datasets[currentDataset]);
+            vocab = await response.json();
+            vocab.sort(() => 0.5 - Math.random());
+          }
+
+          // Reset game state
+          currentIndex = 0;
+          correctAnswers = 0;
+          streak = 0;
+          maxStreak = 0;
+          totalWordsEl.textContent = vocab.length;
+          showWord();
+        } catch (error) {
+          wordEl.innerHTML = `
+      <div style="color: #dc3545; text-align: center;">
+        <h3>⚠️ Fehler beim Laden</h3>
+        <p>Die Daten konnten nicht geladen werden.</p>
+        <button onclick="loadDataset()" style="margin-top: 15px; padding: 10px 20px; background: #667eea; color: white; border: none; border-radius: 8px; cursor: pointer;">
+          🔄 Neu laden
+        </button>
+      </div>
+    `;
+          console.error("Fehler beim Laden:", error);
+        }
+      }
+      // Event listeners
+      languageSelector.addEventListener("change", (e) => {
+        currentLanguage = e.target.value;
+        if (currentDataset === "vocabulary" && vocab.length > 0) {
+          showWord(); // Refresh current word with new language
+        }
+      });
+
+      datasetSelector.addEventListener("change", (e) => {
+        currentDataset = e.target.value;
+        loadDataset();
+      });
 
       // Feedback form handler
       document
@@ -795,29 +1132,8 @@
           }
         });
 
-      // Load vocabulary data
-      fetch(
-        "https://gist.githubusercontent.com/deepcode-debug/da7e4ec19ebc56c802355d9784a7d4bc/raw/79900993fe53a769b82364e4d2e00af3ce825b47/deu_eng.json"
-      )
-        .then((response) => response.json())
-        .then((data) => {
-          vocab = data;
-          vocab.sort(() => 0.5 - Math.random());
-          totalWordsEl.textContent = vocab.length;
-          showWord();
-        })
-        .catch((error) => {
-          wordEl.innerHTML = `
-          <div style="color: #dc3545; text-align: center;">
-            <h3>⚠️ Fehler beim Laden</h3>
-            <p>Die Vokabeln konnten nicht geladen werden.</p>
-            <button onclick="location.reload()" style="margin-top: 15px; padding: 10px 20px; background: #667eea; color: white; border: none; border-radius: 8px; cursor: pointer;">
-              🔄 Neu laden
-            </button>
-          </div>
-        `;
-          console.error("Fehler beim Laden:", error);
-        });
+      // Initialize the app
+      loadDataset();
     </script>
   </body>
 </html>
