@@ -687,15 +687,15 @@
       const datasets = {
         vocabulary: "merged", // Special flag to indicate merged dataset
         grammar:
-          "https://s3.ap-south-1.amazonaws.com/qubric.in/data/deutsch_artikel.json",
+          "https://raw.githubusercontent.com/jayeshthk/dtz_b1_spiel/refs/heads/main/data/deutsch_artikel.json",
       };
 
       // Individual dataset URLs for merging
       const vocabularyDatasets = {
         vocabulary_1:
-          "https://s3.ap-south-1.amazonaws.com/qubric.in/data/deutsch_ubung.json",
+          "https://raw.githubusercontent.com/jayeshthk/dtz_b1_spiel/refs/heads/main/data/deutsch_ubung.json",
         vocabulary_2:
-          "https://s3.ap-south-1.amazonaws.com/qubric.in/data/deu_eng.json",
+          "https://raw.githubusercontent.com/jayeshthk/dtz_b1_spiel/refs/heads/main/data/deu_eng.json",
       };
       function normalizeVocabularyItem(item, source) {
         if (source === "vocabulary_1") {
