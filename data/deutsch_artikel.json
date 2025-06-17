@@ -1,0 +1,1952 @@
+[
+    {
+        "word": "die Abbildung, -en",
+        "sentence": "Hier in ___ Abbildung sehen Sie, wie man das Gerät einschaltet.",
+        "true": "der",
+        "options": [
+            "das",
+            "der",
+            "dem"
+        ]
+    },
+    {
+        "word": "der Absender, -",
+        "sentence": "Schicken Sie das Päckchen an ___ Absender zurück.",
+        "true": "den",
+        "options": [
+            "den",
+            "die",
+            "des"
+        ]
+    },
+    {
+        "word": "die Abteilung, -en",
+        "sentence": "Meine Freundin arbeitet in ___ Abteilung von Frau Kaufmann.",
+        "true": "der",
+        "options": [
+            "der",
+            "den",
+            "das"
+        ]
+    },
+    {
+        "word": "die Agentur, -en",
+        "sentence": "Ich habe einen Brief von ___ Agentur für Arbeit bekommen.",
+        "true": "der",
+        "options": [
+            "des",
+            "der",
+            "dem"
+        ]
+    },
+    {
+        "word": "die Ampel, -n",
+        "sentence": "Dort an ___ Ampel kannst du über die Straße gehen.",
+        "true": "der",
+        "options": [
+            "der",
+            "dem",
+            "den"
+        ]
+    },
+    {
+        "word": "der Anfang, -\"e",
+        "sentence": "Wie war der Film? - Ich habe nur ___ Anfang gesehen.",
+        "true": "den",
+        "options": [
+            "die",
+            "dem",
+            "den"
+        ]
+    },
+    {
+        "word": "die Ankunft, \"-e",
+        "sentence": "Die Abfahrt ist um 0.55 Uhr, ___ Ankunft um 8.07 Uhr.",
+        "true": "die",
+        "options": [
+            "der",
+            "die",
+            "des"
+        ]
+    },
+    {
+        "word": "die Ankunft, \"-e",
+        "sentence": "Gleich nach ___ Ankunft habe ich meine Eltern angerufen.",
+        "true": "der",
+        "options": [
+            "der",
+            "die",
+            "des"
+        ]
+    },
+    {
+        "word": "die Anlage, -n",
+        "sentence": "In ___ Anlage finden Sie meinen Lebenslauf.",
+        "true": "der",
+        "options": [
+            "der",
+            "dem",
+            "des"
+        ]
+    },
+    {
+        "word": "die Anrede, -n",
+        "sentence": "Du darfst im Brief ___ Anrede nicht vergessen.",
+        "true": "die",
+        "options": [
+            "der",
+            "den",
+            "die"
+        ]
+    },
+    {
+        "word": "der Anrufbeantworter, -",
+        "sentence": "Ich habe dir eine Nachricht auf ___ Anrufbeantworter gesprochen.",
+        "true": "den",
+        "options": [
+            "des",
+            "den",
+            "das"
+        ]
+    },
+    {
+        "word": "die Ansage, -n",
+        "sentence": "Achten Sie auf ___ Ansage am Bahnsteig.",
+        "true": "die",
+        "options": [
+            "die",
+            "der",
+            "des"
+        ]
+    },
+    {
+        "word": "der Apparat, -e",
+        "sentence": "Können Sie ___ Apparat bitte etwas leiser stellen?",
+        "true": "den",
+        "options": [
+            "das",
+            "den",
+            "die"
+        ]
+    },
+    {
+        "word": "die Arbeit, -en",
+        "sentence": "Nach der Ausbildung hat Mohamed ___ Arbeit gefunden.",
+        "true": "eine",
+        "options": [
+            "ein",
+            "eine",
+            "einen"
+        ]
+    },
+    {
+        "word": "der Arm, -e",
+        "sentence": "Mein Freund hat sich ___ Arm gebrochen.",
+        "true": "den",
+        "options": [
+            "des",
+            "das",
+            "den"
+        ]
+    },
+    {
+        "word": "der Augenblick, -e",
+        "sentence": "Ich wollte gerade parken. In ___ Augenblick ist ein Wagen aus der Ausfahrt gekommen.",
+        "true": "dem",
+        "options": [
+            "dem",
+            "das",
+            "den"
+        ]
+    },
+    {
+        "word": "der Ausbildungsplatz, -\"e",
+        "sentence": "Mein Neffe sucht nach der Schule ___ Ausbildungsplatz als Kfz-Mechaniker.",
+        "true": "einen",
+        "options": [
+            "ein",
+            "eine",
+            "einen"
+        ]
+    },
+    {
+        "word": "der Ausdruck, -\"e",
+        "sentence": "Machen Sie doch bitte ___ Ausdruck von der E-Mail.",
+        "true": "einen",
+        "options": [
+            "einem",
+            "einen",
+            "eine"
+        ]
+    },
+    {
+        "word": "der Ausflug, -\"e",
+        "sentence": "Am Wochenende machen wir mit Freunden ___ Ausflug nach Heidelberg.",
+        "true": "einen",
+        "options": [
+            "einen",
+            "einem",
+            "eine"
+        ]
+    },
+    {
+        "word": "der Ausgang, -\"e",
+        "sentence": "Wo ist ___ Ausgang bitte?",
+        "true": "der",
+        "options": [
+            "das",
+            "der",
+            "den"
+        ]
+    },
+    {
+        "word": "die Auskunft, -\"e",
+        "sentence": "Die Firma hat eine neue Nummer. - Bitte, rufen Sie ___ Auskunft an.",
+        "true": "die",
+        "options": [
+            "den",
+            "die",
+            "das"
+        ]
+    },
+    {
+        "word": "das Auto, -s",
+        "sentence": "Mario fährt mit ___ Auto zur Arbeit.",
+        "true": "dem",
+        "options": [
+            "dem",
+            "des",
+            "das"
+        ]
+    },
+    {
+        "word": "der Babysitter, -",
+        "sentence": "Wir wollen am Samstagabend zu Freunden gehen. Deshalb brauche ich ___ Babysitter für unsere kleine Tochter.",
+        "true": "einen",
+        "options": [
+            "einen",
+            "ein",
+            "einem"
+        ]
+    },
+    {
+        "word": "die Bäckerei, -en",
+        "sentence": "Wir kaufen unser Brot immer in ___ Bäckerei am Markt.",
+        "true": "der",
+        "options": [
+            "den",
+            "die",
+            "der"
+        ]
+    },
+    {
+        "word": "die Straßenbahn, -en",
+        "sentence": "Nehmen Sie ___ Straßenbahn Nr. 16.",
+        "true": "die",
+        "options": [
+            "das",
+            "den",
+            "die"
+        ]
+    },
+    {
+        "word": "die Straßenbahn, -en",
+        "sentence": "Ich bin heute mit ___ Straßenbahn gekommen.",
+        "true": "der",
+        "options": [
+            "der",
+            "den",
+            "dem"
+        ]
+    },
+    {
+        "word": "die Bank, -\"e/die Bank, -en",
+        "sentence": "Kommt, wir setzen uns auf ___ Bank da vorne.",
+        "true": "die",
+        "options": [
+            "der",
+            "die",
+            "dem"
+        ]
+    },
+    {
+        "word": "der Bauch, -\"e",
+        "sentence": "Mir tut ___ Bauch weh.",
+        "true": "der",
+        "options": [
+            "die",
+            "der",
+            "des"
+        ]
+    },
+    {
+        "word": "die Baustelle, -n",
+        "sentence": "Wir müssen ___ Baustelle umfahren.",
+        "true": "die",
+        "options": [
+            "dem",
+            "die",
+            "der"
+        ]
+    },
+    {
+        "word": "der Berg, -e",
+        "sentence": "Auf ___ Berg haben wir ein Picknick gemacht.",
+        "true": "dem",
+        "options": [
+            "des",
+            "die",
+            "dem"
+        ]
+    },
+    {
+        "word": "der Betrag, -\"e",
+        "sentence": "Bitte überweisen Sie ___ Betrag auf unser Konto.",
+        "true": "den",
+        "options": [
+            "das",
+            "dem",
+            "den"
+        ]
+    },
+    {
+        "word": "die Bevölkerung, -en",
+        "sentence": "Die Polizei bittet ___ Bevölkerung um Mithilfe.",
+        "true": "die",
+        "options": [
+            "dem",
+            "die",
+            "das"
+        ]
+    },
+    {
+        "word": "der Blitz, -e",
+        "sentence": "Was für ein Gewitter. Hast du ___ Blitz gesehen?",
+        "true": "den",
+        "options": [
+            "den",
+            "der",
+            "die"
+        ]
+    },
+    {
+        "word": "die Botschaft, -en",
+        "sentence": "Das Visum habe ich von ___ Botschaft bekommen.",
+        "true": "der",
+        "options": [
+            "der",
+            "des",
+            "den"
+        ]
+    },
+    {
+        "word": "der Briefträger, -",
+        "sentence": "War ___ Briefträger schon da?",
+        "true": "der",
+        "options": [
+            "der",
+            "des",
+            "das"
+        ]
+    },
+    {
+        "word": "die Broschüre, -n",
+        "sentence": "In ___ Broschüre finden Sie die neuesten Informationen.",
+        "true": "der",
+        "options": [
+            "den",
+            "das",
+            "der"
+        ]
+    },
+    {
+        "word": "das Buch, -\"er",
+        "sentence": "Haben Sie ___ Buch über die Geschichte von Berlin?",
+        "true": "ein",
+        "options": [
+            "einem",
+            "ein",
+            "einen"
+        ]
+    },
+    {
+        "word": "die Buchhandlung, -en",
+        "sentence": "In ___ Buchhandlung in ___ Stadt haben sie das Buch sicher.",
+        "true": "der",
+        "options": [
+            "dem",
+            "der",
+            "das"
+        ]
+    },
+    {
+        "word": "der Bürgersteig, -e",
+        "sentence": "Hier ist Parken auf ___ Bürgersteig erlaubt.",
+        "true": "dem",
+        "options": [
+            "dem",
+            "des",
+            "den"
+        ]
+    },
+    {
+        "word": "der Chef, -s",
+        "sentence": "Das kann ich nicht allein entscheiden, da muss ich erst ___ Chef fragen.",
+        "true": "den",
+        "options": [
+            "den",
+            "der",
+            "dem"
+        ]
+    },
+    {
+        "word": "die Creme, -s",
+        "sentence": "Ich hätte gern ___ Creme für die Hände.",
+        "true": "eine",
+        "options": [
+            "eine",
+            "ein",
+            "einen"
+        ]
+    },
+    {
+        "word": "die Datei, -en",
+        "sentence": "Wo hast du ___ Datei gespeichert?",
+        "true": "die",
+        "options": [
+            "der",
+            "die",
+            "des"
+        ]
+    },
+    {
+        "word": "der Direktor, -en",
+        "sentence": "Ich möchte gern mit ___ Direktor sprechen.",
+        "true": "dem",
+        "options": [
+            "des",
+            "dem",
+            "das"
+        ]
+    },
+    {
+        "word": "der Doktor, -en",
+        "sentence": "Sie können schon Platz nehmen, ___ Doktor kommt gleich.",
+        "true": "der",
+        "options": [
+            "den",
+            "der",
+            "die"
+        ]
+    },
+    {
+        "word": "der Druck (Sg.)",
+        "sentence": "Wie hoch muss ___ Druck in den vorderen Reifen sein?",
+        "true": "der",
+        "options": [
+            "der",
+            "des",
+            "den"
+        ]
+    },
+    {
+        "word": "die Durchsage, -n",
+        "sentence": "Ich habe ___ Durchsage nicht verstanden.",
+        "true": "die",
+        "options": [
+            "die",
+            "dem",
+            "des"
+        ]
+    },
+    {
+        "word": "die EC-Karte, -n",
+        "sentence": "Bezahlen Sie bar? Sie können auch mit ___ ec-Karte zahlen.",
+        "true": "der",
+        "options": [
+            "die",
+            "der",
+            "den"
+        ]
+    },
+    {
+        "word": "die Einrichtung, -en",
+        "sentence": "Deine Wohnung ist sehr gemütlich, ___ Einrichtung gefällt mir sehr gut.",
+        "true": "die",
+        "options": [
+            "das",
+            "den",
+            "die"
+        ]
+    },
+    {
+        "word": "der Empfang, -\"e",
+        "sentence": "Bitte ___ Empfang bestätigen!",
+        "true": "den",
+        "options": [
+            "dem",
+            "der",
+            "den"
+        ]
+    },
+    {
+        "word": "die Entwicklung, -en",
+        "sentence": "Genug Schlaf ist wichtig für ___ Entwicklung Ihres Kindes.",
+        "true": "die",
+        "options": [
+            "die",
+            "den",
+            "das"
+        ]
+    },
+    {
+        "word": "die Erde, -n",
+        "sentence": "Mein Sohn hat das Glas auf ___ Erde fallen lassen.",
+        "true": "die",
+        "options": [
+            "der",
+            "die",
+            "den"
+        ]
+    },
+    {
+        "word": "die Erde, -n",
+        "sentence": "An ___ Konferenz nehmen Vertreter aus fast allen Ländern ___ Erde teil.",
+        "true": "der",
+        "options": [
+            "dem",
+            "das",
+            "der"
+        ]
+    },
+    {
+        "word": "die Erklärung, -en",
+        "sentence": "Die Erklärung der Lehrerin ist besser als ___ Erklärung im Buch.",
+        "true": "die",
+        "options": [
+            "dem",
+            "der",
+            "die"
+        ]
+    },
+    {
+        "word": "die Ermäßigung, -en",
+        "sentence": "Es gibt ___ Ermäßigung für Kinder und Senioren.",
+        "true": "eine",
+        "options": [
+            "einen",
+            "eine",
+            "einer"
+        ]
+    },
+    {
+        "word": "die Erziehung, -en",
+        "sentence": "Heute kümmern sich auch viele Väter um ___ Erziehung der Kinder.",
+        "true": "die",
+        "options": [
+            "den",
+            "das",
+            "die"
+        ]
+    },
+    {
+        "word": "die Fähre, -n",
+        "sentence": "Wir nehmen ___ Fähre über den Bodensee.",
+        "true": "die",
+        "options": [
+            "den",
+            "die",
+            "der"
+        ]
+    },
+    {
+        "word": "der Fahrer,",
+        "sentence": "Bitte nicht mit ___ Fahrer sprechen!",
+        "true": "dem",
+        "options": [
+            "dem",
+            "der",
+            "das"
+        ]
+    },
+    {
+        "word": "das Fahrrad, -\"er",
+        "sentence": "Ich fahre jeden Morgen mit ___ Fahrrad zur Arbeit.",
+        "true": "dem",
+        "options": [
+            "dem",
+            "das",
+            "den"
+        ]
+    },
+    {
+        "word": "die Fahrschule, -n",
+        "sentence": "Wenn du den Führerschein machen willst, musst du in ___ Fahrschule gehen.",
+        "true": "eine",
+        "options": [
+            "eine",
+            "einen",
+            "ein"
+        ]
+    },
+    {
+        "word": "der Fehler,",
+        "sentence": "In der Werkstatt haben sie ___ Fehler sofort gefunden.",
+        "true": "den",
+        "options": [
+            "dem",
+            "den",
+            "die"
+        ]
+    },
+    {
+        "word": "die Fernbedienung, -en",
+        "sentence": "Hast du ___ Fernbedienung gesehen?",
+        "true": "die",
+        "options": [
+            "das",
+            "die",
+            "der"
+        ]
+    },
+    {
+        "word": "das Feuer, -",
+        "sentence": "Der Schaden durch ___ Feuer war sehr groß.",
+        "true": "das",
+        "options": [
+            "die",
+            "das",
+            "des"
+        ]
+    },
+    {
+        "word": "der Film, -e",
+        "sentence": "Bis wann können Sie ___ Film entwickeln?",
+        "true": "den",
+        "options": [
+            "das",
+            "den",
+            "dem"
+        ]
+    },
+    {
+        "word": "der Finger, -",
+        "sentence": "Alessandro hat sich in ___ Finger geschnitten.",
+        "true": "den",
+        "options": [
+            "dem",
+            "den",
+            "das"
+        ]
+    },
+    {
+        "word": "der Fleck, -en",
+        "sentence": "Du hast ___ Fleck auf der Bluse.",
+        "true": "einen",
+        "options": [
+            "einen",
+            "einem",
+            "einer"
+        ]
+    },
+    {
+        "word": "der Flug, -\"e",
+        "sentence": "Ich habe ___ Flug für Sie gebucht.",
+        "true": "den",
+        "options": [
+            "das",
+            "den",
+            "die"
+        ]
+    },
+    {
+        "word": "die Förderung, -en",
+        "sentence": "Für das Projekt bekommen wir ___ Förderung von der Stadt.",
+        "true": "eine",
+        "options": [
+            "eine",
+            "einem",
+            "einer"
+        ]
+    },
+    {
+        "word": "der Führerschein, -e",
+        "sentence": "Mein Bruder hat erst vor einem halben Jahr ___ Führerschein gemacht.",
+        "true": "den",
+        "options": [
+            "den",
+            "dem",
+            "des"
+        ]
+    },
+    {
+        "word": "die Garderobe, -n",
+        "sentence": "Die Mäntel bitte an ___ Garderobe abgeben.",
+        "true": "der",
+        "options": [
+            "dem",
+            "der",
+            "des"
+        ]
+    },
+    {
+        "word": "die Geburt, -en",
+        "sentence": "Sie müssen ___ Geburt Ihres Kindes beim Standesamt melden.",
+        "true": "die",
+        "options": [
+            "die",
+            "dem",
+            "das"
+        ]
+    },
+    {
+        "word": "die Gegend, -en",
+        "sentence": "Das Ordnungsamt muss hier in ___ Gegend sein.",
+        "true": "der",
+        "options": [
+            "die",
+            "den",
+            "der"
+        ]
+    },
+    {
+        "word": "die Gesellschaft, -en",
+        "sentence": "Michael will ___ Gesellschaft verändern.",
+        "true": "die",
+        "options": [
+            "dem",
+            "die",
+            "des"
+        ]
+    },
+    {
+        "word": "die Grenze, -n",
+        "sentence": "An ___ Grenze musst du deinen Ausweis zeigen.",
+        "true": "der",
+        "options": [
+            "den",
+            "der",
+            "des"
+        ]
+    },
+    {
+        "word": "die Grippe, -n",
+        "sentence": "Ich habe ___ Grippe und kann leider nicht kommen.",
+        "true": "eine",
+        "options": [
+            "einem",
+            "eine",
+            "einer"
+        ]
+    },
+    {
+        "word": "der Hafen, -\"",
+        "sentence": "Wenn du in Hamburg bist, musst du dir unbedingt ___ Hafen ansehen.",
+        "true": "den",
+        "options": [
+            "den",
+            "die",
+            "der"
+        ]
+    },
+    {
+        "word": "die Hälfte, -n",
+        "sentence": "Was hat der Mann gesagt? Ich habe nur ___ Hälfte verstanden.",
+        "true": "die",
+        "options": [
+            "die",
+            "der",
+            "das"
+        ]
+    },
+    {
+        "word": "der Hals, -\"e",
+        "sentence": "Mir tut ___ Hals weh.",
+        "true": "der",
+        "options": [
+            "des",
+            "die",
+            "der"
+        ]
+    },
+    {
+        "word": "die Hand, -\"e",
+        "sentence": "Ich kann Ihnen nicht ___ Hand geben. - Ich spüle gerade das Geschirr.",
+        "true": "die",
+        "options": [
+            "die",
+            "des",
+            "dem"
+        ]
+    },
+    {
+        "word": "die Hauptstadt, -\"e",
+        "sentence": "Berlin ist ___ Hauptstadt von Deutschland.",
+        "true": "die",
+        "options": [
+            "die",
+            "des",
+            "das"
+        ]
+    },
+    {
+        "word": "der Hausmeister, -",
+        "sentence": "Sie haben kein Warmwasser? Am besten, Sie rufen ___ Hausmeister an.",
+        "true": "den",
+        "options": [
+            "den",
+            "das",
+            "die"
+        ]
+    },
+    {
+        "word": "die Heizung, -en",
+        "sentence": "Es ist kalt. Ist ___ Heizung kaputt?",
+        "true": "die",
+        "options": [
+            "des",
+            "die",
+            "dem"
+        ]
+    },
+    {
+        "word": "der Hersteller, -",
+        "sentence": "Ihr Handy ist kaputt? Wir schicken es an ___ Hersteller zurück und lassen es reparieren.",
+        "true": "den",
+        "options": [
+            "den",
+            "der",
+            "des"
+        ]
+    },
+    {
+        "word": "die Hoffnung, -en",
+        "sentence": "Man darf ___ Hoffnung nicht verlieren.",
+        "true": "die",
+        "options": [
+            "dem",
+            "das",
+            "die"
+        ]
+    },
+    {
+        "word": "die Hose, -n",
+        "sentence": "Können Sie ___ Hose etwas kürzer machen?",
+        "true": "die",
+        "options": [
+            "die",
+            "des",
+            "das"
+        ]
+    },
+    {
+        "word": "die Idee, -n",
+        "sentence": "Du willst ein Picknick machen? Ich finde ___ Idee toll.",
+        "true": "die",
+        "options": [
+            "die",
+            "das",
+            "dem"
+        ]
+    },
+    {
+        "word": "der Inhalt, -e",
+        "sentence": "Geben Sie ___ Inhalt der Packung in einen Liter kochendes Wasser.",
+        "true": "den",
+        "options": [
+            "den",
+            "der",
+            "des"
+        ]
+    },
+    {
+        "word": "die Innenstadt, -\"e",
+        "sentence": "Direkt in ___ Innenstadt kriegst du keinen Parkplatz.",
+        "true": "der",
+        "options": [
+            "des",
+            "der",
+            "die"
+        ]
+    },
+    {
+        "word": "die Integration, -en",
+        "sentence": "Gute Deutschkenntnisse sollen bei ___ Integration helfen.",
+        "true": "der",
+        "options": [
+            "dem",
+            "das",
+            "der"
+        ]
+    },
+    {
+        "word": "der Kampf, -\"e",
+        "sentence": "Im Schulbus gibt es immer ___ Kampf um die Sitzplätze.",
+        "true": "einen",
+        "options": [
+            "einem",
+            "einen",
+            "ein"
+        ]
+    },
+    {
+        "word": "die Karte, -n",
+        "sentence": "Schreibst du mir ___ Karte aus dem Urlaub?",
+        "true": "eine",
+        "options": [
+            "einem",
+            "eine",
+            "einen"
+        ]
+    },
+    {
+        "word": "der Katalog, -e",
+        "sentence": "Ich habe mir ein Kleid aus ___ Katalog bestellt.",
+        "true": "dem",
+        "options": [
+            "dem",
+            "den",
+            "der"
+        ]
+    },
+    {
+        "word": "der Käufer, -",
+        "sentence": "Ich habe schon ___ Käufer für den alten Tisch.",
+        "true": "einen",
+        "options": [
+            "eine",
+            "einen",
+            "ein"
+        ]
+    },
+    {
+        "word": "die Kneipe, -n",
+        "sentence": "Kommst du mit in ___ Kneipe ein Bier trinken?",
+        "true": "die",
+        "options": [
+            "der",
+            "die",
+            "dem"
+        ]
+    },
+    {
+        "word": "der Knopf, -\"e",
+        "sentence": "Der Fahrstuhl kommt nicht. - Sie müssen auf ___ Knopf drücken.",
+        "true": "den",
+        "options": [
+            "das",
+            "den",
+            "der"
+        ]
+    },
+    {
+        "word": "der Koffer, -",
+        "sentence": "Ich habe ___ Koffer schon gepackt.",
+        "true": "den",
+        "options": [
+            "das",
+            "den",
+            "dem"
+        ]
+    },
+    {
+        "word": "der Koffer, -",
+        "sentence": "Stellen Sie ___ Koffer auf das Band.",
+        "true": "den",
+        "options": [
+            "der",
+            "den",
+            "die"
+        ]
+    },
+    {
+        "word": "die Konkurrenz, -en",
+        "sentence": "Bei ___ Konkurrenz bekomme ich sie für die Hälfte.",
+        "true": "der",
+        "options": [
+            "der",
+            "das",
+            "den"
+        ]
+    },
+    {
+        "word": "die Kosten (Pl.)",
+        "sentence": "Die Kosten für ___ Zahnbehandlung zahlt ___ Krankenkasse.",
+        "true": "die",
+        "options": [
+            "des",
+            "der",
+            "die"
+        ]
+    },
+    {
+        "word": "der Kredit, -e",
+        "sentence": "Wir haben von der Bank ___ Kredit bekommen.",
+        "true": "einen",
+        "options": [
+            "einem",
+            "einen",
+            "ein"
+        ]
+    },
+    {
+        "word": "die Kündigung, -en",
+        "sentence": "Ich habe ___ Kündigung bekommen. Jetzt bin ich arbeitslos.",
+        "true": "die",
+        "options": [
+            "des",
+            "der",
+            "die"
+        ]
+    },
+    {
+        "word": "der Laden, -\"",
+        "sentence": "Dieses Kleid habe ich in ___ Laden im Zentrum gekauft.",
+        "true": "einem",
+        "options": [
+            "einem",
+            "ein",
+            "eine"
+        ]
+    },
+    {
+        "word": "die Lampe, -n",
+        "sentence": "Mach doch bitte ___ Lampe an. - Es ist so dunkel hier.",
+        "true": "die",
+        "options": [
+            "dem",
+            "die",
+            "des"
+        ]
+    },
+    {
+        "word": "das Land, -\"er",
+        "sentence": "Möchten Sie lieber auf ___ Land oder in der Stadt wohnen?",
+        "true": "dem",
+        "options": [
+            "den",
+            "der",
+            "dem"
+        ]
+    },
+    {
+        "word": "die Landung, -en",
+        "sentence": "Bei ___ Landung müssen Sie sich anschnallen.",
+        "true": "der",
+        "options": [
+            "den",
+            "der",
+            "des"
+        ]
+    },
+    {
+        "word": "der Leiter, -",
+        "sentence": "Wie heißt ___ Leiter ___ Schule?",
+        "true": "der",
+        "options": [
+            "die",
+            "des",
+            "der"
+        ]
+    },
+    {
+        "word": "die Leitung, -en",
+        "sentence": "Ab 15. Juli übernimmt Herr Meier ___ Leitung der Abteilung.",
+        "true": "die",
+        "options": [
+            "den",
+            "das",
+            "die"
+        ]
+    },
+    {
+        "word": "die Liebe, -n",
+        "sentence": "Für mich ist das Wichtigste ___ Liebe zu meiner Familie und zu meinen Kindern.",
+        "true": "die",
+        "options": [
+            "das",
+            "des",
+            "die"
+        ]
+    },
+    {
+        "word": "der Lift, -e",
+        "sentence": "Im Büro ist leider ___ Lift kaputt.",
+        "true": "der",
+        "options": [
+            "der",
+            "des",
+            "das"
+        ]
+    },
+    {
+        "word": "die Linie, -n",
+        "sentence": "Zum Hauptbahnhof können Sie mit ___ Linie 8 fahren.",
+        "true": "der",
+        "options": [
+            "dem",
+            "der",
+            "die"
+        ]
+    },
+    {
+        "word": "der Magen, -\"",
+        "sentence": "Mit tut ___ Magen weh. Ich habe Magenschmerzen.",
+        "true": "der",
+        "options": [
+            "der",
+            "dem",
+            "die"
+        ]
+    },
+    {
+        "word": "der Maler, -",
+        "sentence": "Wir haben ___ Maler im Haus. - Wir lassen ___ Wände neu streichen.",
+        "true": "die",
+        "options": [
+            "das",
+            "die",
+            "der"
+        ]
+    },
+    {
+        "word": "die Mauer, -n",
+        "sentence": "Die Kinder sind über ___ Mauer geklettert.",
+        "true": "die",
+        "options": [
+            "des",
+            "das",
+            "die"
+        ]
+    },
+    {
+        "word": "die Maus, -\"e",
+        "sentence": "Du klickst einfach mit ___ Maus auf das Symbol.",
+        "true": "der",
+        "options": [
+            "das",
+            "der",
+            "die"
+        ]
+    },
+    {
+        "word": "die Maus, -\"e",
+        "sentence": "Unsere Katze hat schon wieder ___ Maus gefangen.",
+        "true": "eine",
+        "options": [
+            "eine",
+            "einer",
+            "ein"
+        ]
+    },
+    {
+        "word": "die Meldung, -en",
+        "sentence": "Hast du ___ Meldung im Radio gehört? Es wird starken Sturm geben.",
+        "true": "die",
+        "options": [
+            "des",
+            "den",
+            "die"
+        ]
+    },
+    {
+        "word": "die Menge, -n",
+        "sentence": "Ich kenne schon ___ Menge Leute in der Stadt.",
+        "true": "eine",
+        "options": [
+            "ein",
+            "einen",
+            "eine"
+        ]
+    },
+    {
+        "word": "die Messe, -n",
+        "sentence": "Vielleicht kann ich auf ___ Messe einen Job bekommen.",
+        "true": "der",
+        "options": [
+            "dem",
+            "der",
+            "die"
+        ]
+    },
+    {
+        "word": "die Milch (Sg.)",
+        "sentence": "Stellst du bitte ___ Milch in den Kühlschrank?",
+        "true": "die",
+        "options": [
+            "die",
+            "der",
+            "des"
+        ]
+    },
+    {
+        "word": "das Motorrad, -\"er",
+        "sentence": "Oskar fährt jeden Tag mit ___ Motorrad zur Arbeit.",
+        "true": "dem",
+        "options": [
+            "dem",
+            "des",
+            "das"
+        ]
+    },
+    {
+        "word": "der Müll (Sg.)",
+        "sentence": "Wir müssen ___ Müll trennen!",
+        "true": "den",
+        "options": [
+            "dem",
+            "den",
+            "der"
+        ]
+    },
+    {
+        "word": "der Mund, -\"er",
+        "sentence": "Sie haben Halsschmerzen? Bitte machen Sie mal ___ Mund auf.",
+        "true": "den",
+        "options": [
+            "den",
+            "der",
+            "die"
+        ]
+    },
+    {
+        "word": "der Nagel, -\"",
+        "sentence": "Kannst du mir ___ Nagel in die Wand schlagen?",
+        "true": "den",
+        "options": [
+            "der",
+            "des",
+            "den"
+        ]
+    },
+    {
+        "word": "der Notausgang, -\"e",
+        "sentence": "Der Notausgang ist gleich hier bei ___ Treppe.",
+        "true": "der",
+        "options": [
+            "das",
+            "der",
+            "des"
+        ]
+    },
+    {
+        "word": "die Nummer, -n",
+        "sentence": "Haben Sie die Bluse ___ Nummer kleiner?",
+        "true": "eine",
+        "options": [
+            "ein",
+            "einer",
+            "eine"
+        ]
+    },
+    {
+        "word": "die Operation, -en",
+        "sentence": "Seit ___ Operation kann ich mein Knie nicht mehr bewegen.",
+        "true": "der",
+        "options": [
+            "dem",
+            "den",
+            "der"
+        ]
+    },
+    {
+        "word": "der Vorort, -e",
+        "sentence": "Mein Bruder wohnt in ___ Vorort von Hamburg.",
+        "true": "einem",
+        "options": [
+            "einen",
+            "einer",
+            "einem"
+        ]
+    },
+    {
+        "word": "die Panne, -n",
+        "sentence": "Kurz vor München hatten wir ___ Panne mit dem Auto.",
+        "true": "eine",
+        "options": [
+            "eine",
+            "einer",
+            "ein"
+        ]
+    },
+    {
+        "word": "die Panne, -n",
+        "sentence": "Die Reise war schlecht organisiert, es gab ___ Panne nach der anderen.",
+        "true": "eine",
+        "options": [
+            "ein",
+            "einer",
+            "eine"
+        ]
+    },
+    {
+        "word": "der Papa, -s",
+        "sentence": "Heute holt dich ___ Papa von ___ Schule ab.",
+        "true": "der",
+        "options": [
+            "dem",
+            "der",
+            "den"
+        ]
+    },
+    {
+        "word": "die Parkuhr, -en",
+        "sentence": "Für ___ Parkuhr brauchst du Kleingeld.",
+        "true": "die",
+        "options": [
+            "den",
+            "die",
+            "das"
+        ]
+    },
+    {
+        "word": "die Pflegeversicherung, -en",
+        "sentence": "Für ___ Pflegeversicherung muss ich jeden Monat Beiträge zahlen.",
+        "true": "die",
+        "options": [
+            "die",
+            "dem",
+            "den"
+        ]
+    },
+    {
+        "word": "das Postfach, -\"er",
+        "sentence": "Du musst den Brief an ___ Postfach schicken.",
+        "true": "das",
+        "options": [
+            "dem",
+            "das",
+            "den"
+        ]
+    },
+    {
+        "word": "die Postleitzahl, -en",
+        "sentence": "Weißt du ___ Postleitzahl von Berlin-Wedding?",
+        "true": "die",
+        "options": [
+            "der",
+            "die",
+            "den"
+        ]
+    },
+    {
+        "word": "die Praxis, -en",
+        "sentence": "Das ist die Theorie. In ___ Praxis ist vieles ganz anders.",
+        "true": "der",
+        "options": [
+            "des",
+            "dem",
+            "der"
+        ]
+    },
+    {
+        "word": "der Prozess, -e",
+        "sentence": "Mein Nachbar hat ___ Prozess verloren.",
+        "true": "den",
+        "options": [
+            "die",
+            "des",
+            "den"
+        ]
+    },
+    {
+        "word": "die Prüfung, -en",
+        "sentence": "Mein Freund hat ___ Prüfung bestanden.",
+        "true": "die",
+        "options": [
+            "des",
+            "die",
+            "das"
+        ]
+    },
+    {
+        "word": "das Rad, -\"er",
+        "sentence": "Ich fahre jeden Morgen mit ___ Rad zur Arbeit.",
+        "true": "dem",
+        "options": [
+            "dem",
+            "den",
+            "der"
+        ]
+    },
+    {
+        "word": "die Reinigung, -en",
+        "sentence": "Kannst du bitte ___ Bluse in ___ Reinigung bringen?",
+        "true": "die",
+        "options": [
+            "die",
+            "des",
+            "das"
+        ]
+    },
+    {
+        "word": "die Reise, -n",
+        "sentence": "Auf ___ Reise haben wir nette Leute kennengelernt.",
+        "true": "der",
+        "options": [
+            "der",
+            "den",
+            "die"
+        ]
+    },
+    {
+        "word": "die Rezeption, -en",
+        "sentence": "Geben Sie bitte den Schlüssel an ___ Rezeption ab.",
+        "true": "der",
+        "options": [
+            "des",
+            "den",
+            "der"
+        ]
+    },
+    {
+        "word": "die Rückfahrt, -en",
+        "sentence": "Auf ___ Rückfahrt besuche ich meine Eltern.",
+        "true": "der",
+        "options": [
+            "das",
+            "die",
+            "der"
+        ]
+    },
+    {
+        "word": "der Rücken, -",
+        "sentence": "Mir tut ___ Rücken weh.",
+        "true": "der",
+        "options": [
+            "der",
+            "die",
+            "dem"
+        ]
+    },
+    {
+        "word": "der Schaden, -\"",
+        "sentence": "Ich hatte einen Unfall mit dem Auto. - Jetzt muss ich ___ Schaden der Versicherung melden.",
+        "true": "den",
+        "options": [
+            "den",
+            "das",
+            "des"
+        ]
+    },
+    {
+        "word": "das Schiff, -e",
+        "sentence": "Sind Sie mit ___ Schiff oder mit ___ Flugzeug gekommen?",
+        "true": "dem",
+        "options": [
+            "das",
+            "dem",
+            "des"
+        ]
+    },
+    {
+        "word": "das Schild, -er",
+        "sentence": "Kannst du lesen, was dort auf ___ Schild steht?",
+        "true": "dem",
+        "options": [
+            "die",
+            "den",
+            "dem"
+        ]
+    },
+    {
+        "word": "die Schule, -n",
+        "sentence": "Nächste Woche fängt ___ Schule wieder an.",
+        "true": "die",
+        "options": [
+            "den",
+            "des",
+            "die"
+        ]
+    },
+    {
+        "word": "die Schule, -n",
+        "sentence": "Die Schule ist gleich hier um ___ Ecke.",
+        "true": "die",
+        "options": [
+            "die",
+            "der",
+            "den"
+        ]
+    },
+    {
+        "word": "die Schwangerschaft, -en",
+        "sentence": "Sie dürfen während ___ Schwangerschaft nicht rauchen.",
+        "true": "der",
+        "options": [
+            "der",
+            "des",
+            "die"
+        ]
+    },
+    {
+        "word": "die Sendung, -en",
+        "sentence": "Wir wiederholen ___ Sendung am 23. Mai.",
+        "true": "die",
+        "options": [
+            "dem",
+            "die",
+            "der"
+        ]
+    },
+    {
+        "word": "der Service (Sg.)",
+        "sentence": "Ich war mit ___ Service in der Werkstatt nicht zufrieden.",
+        "true": "dem",
+        "options": [
+            "der",
+            "dem",
+            "die"
+        ]
+    },
+    {
+        "word": "die Sonne, -n",
+        "sentence": "Ich habe zu lange in ___ Sonne gelegen.",
+        "true": "der",
+        "options": [
+            "der",
+            "dem",
+            "das"
+        ]
+    },
+    {
+        "word": "die Spritze, -n",
+        "sentence": "Ich habe heute vom Arzt ___ Spritze gegen die Schmerzen bekommen.",
+        "true": "eine",
+        "options": [
+            "eine",
+            "einer",
+            "einen"
+        ]
+    },
+    {
+        "word": "die Staatsangehörigkeit, -en",
+        "sentence": "Tragen Sie bitte hier ___ Staatsangehörigkeit ein.",
+        "true": "die",
+        "options": [
+            "das",
+            "die",
+            "der"
+        ]
+    },
+    {
+        "word": "die Stimme, -n",
+        "sentence": "Ich habe dich sofort an ___ Stimme erkannt.",
+        "true": "der",
+        "options": [
+            "der",
+            "dem",
+            "des"
+        ]
+    },
+    {
+        "word": "die Strecke, -n",
+        "sentence": "Auf ___ Strecke München - Salzburg 8 km Stau.",
+        "true": "der",
+        "options": [
+            "der",
+            "das",
+            "den"
+        ]
+    },
+    {
+        "word": "die Stunde, -n",
+        "sentence": "Ich bin in ___ Stunde wieder zurück.",
+        "true": "einer",
+        "options": [
+            "einen",
+            "eine",
+            "einer"
+        ]
+    },
+    {
+        "word": "das Symbol, -e",
+        "sentence": "Das Herz ist ___ Symbol für die Liebe.",
+        "true": "ein",
+        "options": [
+            "einen",
+            "ein",
+            "eine"
+        ]
+    },
+    {
+        "word": "die Tabelle, -n",
+        "sentence": "Tragen Sie ___ richtige Information in ___ Tabelle ein.",
+        "true": "die",
+        "options": [
+            "die",
+            "das",
+            "des"
+        ]
+    },
+    {
+        "word": "der Täter, -",
+        "sentence": "Die Polizei hat ___ Täter endlich gefasst.",
+        "true": "den",
+        "options": [
+            "dem",
+            "den",
+            "des"
+        ]
+    },
+    {
+        "word": "der Täter, -",
+        "sentence": "Können Sie ___ Täter beschreiben?",
+        "true": "den",
+        "options": [
+            "des",
+            "den",
+            "dem"
+        ]
+    },
+    {
+        "word": "der Teller, -",
+        "sentence": "Stell bitte schon mal ___ Teller auf den Tisch!",
+        "true": "die",
+        "options": [
+            "die",
+            "der",
+            "dem"
+        ]
+    },
+    {
+        "word": "der Test, -s",
+        "sentence": "Ich bin ganz sicher: Du wirst ___ Test schaffen.",
+        "true": "den",
+        "options": [
+            "dem",
+            "des",
+            "den"
+        ]
+    },
+    {
+        "word": "der Tierpark, -s",
+        "sentence": "Wollen wir am Samstag mit ___ Kindern in ___ Tierpark gehen?",
+        "true": "den",
+        "options": [
+            "den",
+            "das",
+            "die"
+        ]
+    },
+    {
+        "word": "der Titel, -",
+        "sentence": "Wie heißt der Film? - Ich weiß ___ Titel nicht mehr.",
+        "true": "den",
+        "options": [
+            "den",
+            "der",
+            "dem"
+        ]
+    },
+    {
+        "word": "die Toilette, -n",
+        "sentence": "Wo ist ___ Toilette bitte?",
+        "true": "die",
+        "options": [
+            "der",
+            "die",
+            "dem"
+        ]
+    },
+    {
+        "word": "das Tor, -e",
+        "sentence": "Hinter ___ Tor geht es zur Fabrik.",
+        "true": "dem",
+        "options": [
+            "die",
+            "dem",
+            "das"
+        ]
+    },
+    {
+        "word": "das Tor, -e",
+        "sentence": "Mein Bruder hat gestern wieder ___ Tor geschossen.",
+        "true": "ein",
+        "options": [
+            "einen",
+            "ein",
+            "einer"
+        ]
+    },
+    {
+        "word": "die Tour, -en",
+        "sentence": "Am Wochenende machen wir ___ Tour durch die Dörfer.",
+        "true": "eine",
+        "options": [
+            "einer",
+            "einen",
+            "eine"
+        ]
+    },
+    {
+        "word": "die Treppe, -n",
+        "sentence": "Wo ist ___ Toilette? - Die Treppe hoch und dann links.",
+        "true": "die",
+        "options": [
+            "des",
+            "die",
+            "das"
+        ]
+    },
+    {
+        "word": "der Tropfen, -",
+        "sentence": "Hast du ___ Tropfen schon genommen?",
+        "true": "die",
+        "options": [
+            "das",
+            "die",
+            "den"
+        ]
+    },
+    {
+        "word": "die Tür, -en",
+        "sentence": "Machen Sie bitte ___ Tür zu! Es zieht.",
+        "true": "die",
+        "options": [
+            "der",
+            "die",
+            "dem"
+        ]
+    },
+    {
+        "word": "die Übernachtung, -en",
+        "sentence": "In ___sem Hotel kostet ___ Übernachtung mit Frühstück 90 Euro.",
+        "true": "die",
+        "options": [
+            "der",
+            "den",
+            "die"
+        ]
+    },
+    {
+        "word": "die Umgebung, -en",
+        "sentence": "In ___ Umgebung von Berlin kann man schöne Ausflüge machen.",
+        "true": "der",
+        "options": [
+            "der",
+            "die",
+            "das"
+        ]
+    },
+    {
+        "word": "der Unterschied, -e",
+        "sentence": "Können Sie mir sagen, was ___ Unterschied ist? Welche Fahrkarte ist günstiger?",
+        "true": "der",
+        "options": [
+            "der",
+            "den",
+            "das"
+        ]
+    },
+    {
+        "word": "die Verantwortung, -en",
+        "sentence": "Sie tragen ___ Verantwortung für Ihre Kinder.",
+        "true": "die",
+        "options": [
+            "das",
+            "die",
+            "den"
+        ]
+    },
+    {
+        "word": "der Verbrecher, -",
+        "sentence": "Die Polizei hat ___ Verbrecher verhaftet.",
+        "true": "den",
+        "options": [
+            "dem",
+            "der",
+            "den"
+        ]
+    },
+    {
+        "word": "das Verfallsdatum, die Verfallsdaten",
+        "sentence": "Dieses Medikament dürfen Sie nach ___ Verfallsdatum nicht mehr nehmen.",
+        "true": "dem",
+        "options": [
+            "des",
+            "dem",
+            "die"
+        ]
+    },
+    {
+        "word": "der Verlust, -e",
+        "sentence": "Sie müssen ___ Verlust Ihrer Versicherung melden.",
+        "true": "den",
+        "options": [
+            "den",
+            "des",
+            "der"
+        ]
+    },
+    {
+        "word": "die Versicherung, -en",
+        "sentence": "Sie müssen den Unfall ___ Versicherung melden.",
+        "true": "der",
+        "options": [
+            "die",
+            "der",
+            "das"
+        ]
+    },
+    {
+        "word": "der Vertrag, -\"e",
+        "sentence": "Sie beide müssen ___ Vertrag unterschreiben.",
+        "true": "den",
+        "options": [
+            "des",
+            "den",
+            "das"
+        ]
+    },
+    {
+        "word": "die Vorfahrt, -en",
+        "sentence": "Sie haben ___ Vorfahrt nicht beachtet.",
+        "true": "die",
+        "options": [
+            "dem",
+            "die",
+            "den"
+        ]
+    },
+    {
+        "word": "die Vorwahl, -en",
+        "sentence": "Wie ist ___ Vorwahl von Hamburg?",
+        "true": "die",
+        "options": [
+            "den",
+            "die",
+            "das"
+        ]
+    },
+    {
+        "word": "der Wald, -\"er",
+        "sentence": "Hinter unserem Haus fängt ___ Wald an.",
+        "true": "der",
+        "options": [
+            "dem",
+            "der",
+            "den"
+        ]
+    },
+    {
+        "word": "die Ware, -n",
+        "sentence": "Wir liefern Ihnen ___ Ware direkt ins Haus.",
+        "true": "die",
+        "options": [
+            "das",
+            "die",
+            "der"
+        ]
+    },
+    {
+        "word": "die Wäsche (Pl.)",
+        "sentence": "Kannst du bitte ___ Wäsche aufhängen?",
+        "true": "die",
+        "options": [
+            "des",
+            "die",
+            "der"
+        ]
+    },
+    {
+        "word": "der Wecker, -",
+        "sentence": "Hast du ___ Wecker schon gestellt?",
+        "true": "den",
+        "options": [
+            "der",
+            "dem",
+            "den"
+        ]
+    },
+    {
+        "word": "der Weg, -e",
+        "sentence": "Können Sie mir ___ Weg zum Bahnhof erklären?",
+        "true": "den",
+        "options": [
+            "den",
+            "der",
+            "das"
+        ]
+    },
+    {
+        "word": "die Welt, -en",
+        "sentence": "Überall auf ___ Welt gibt es Probleme.",
+        "true": "der",
+        "options": [
+            "der",
+            "die",
+            "des"
+        ]
+    },
+    {
+        "word": "die Weltmeisterschaft, -en",
+        "sentence": "Hast du ___ Weltmeisterschaft gesehen?",
+        "true": "die",
+        "options": [
+            "die",
+            "der",
+            "des"
+        ]
+    },
+    {
+        "word": "die Werbung, -en",
+        "sentence": "Ich sehe gern ___ Werbung im Fernsehen.",
+        "true": "die",
+        "options": [
+            "dem",
+            "die",
+            "des"
+        ]
+    },
+    {
+        "word": "der Wetterbericht, -e",
+        "sentence": "Hast du schon ___ Wetterbericht gehört?",
+        "true": "den",
+        "options": [
+            "den",
+            "die",
+            "das"
+        ]
+    },
+    {
+        "word": "die Zahl, -en",
+        "sentence": "Können Sie ___ Zahl bitte wiederholen?",
+        "true": "die",
+        "options": [
+            "den",
+            "das",
+            "die"
+        ]
+    },
+    {
+        "word": "die Zahlung, -en",
+        "sentence": "Bitte geben Sie bei ___ Zahlung die Rechnungsnummer an.",
+        "true": "der",
+        "options": [
+            "den",
+            "der",
+            "des"
+        ]
+    },
+    {
+        "word": "der Zahn, -\"e",
+        "sentence": "Ich muss ___ Zahn leider ziehen.",
+        "true": "den",
+        "options": [
+            "des",
+            "das",
+            "den"
+        ]
+    },
+    {
+        "word": "die Zustimmung, -en",
+        "sentence": "Wir brauchen vor der Klassenfahrt ___ Zustimmung der Eltern.",
+        "true": "die",
+        "options": [
+            "den",
+            "das",
+            "die"
+        ]
+    }
+]

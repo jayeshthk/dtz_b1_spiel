@@ -687,15 +687,15 @@
       const datasets = {
         vocabulary: "merged", // Special flag to indicate merged dataset
         grammar:
-          "https://gist.githubusercontent.com/deepcode-debug/9282a6d1142c1437bc613b06ac6a553d/raw/2a934fe9c0bda8b69236327d2b09e4b0d2fb45b7/deutsch_artikel..json",
+          "https://s3.ap-south-1.amazonaws.com/qubric.in/data/deutsch_artikel.json",
       };
 
       // Individual dataset URLs for merging
       const vocabularyDatasets = {
         vocabulary_1:
-          "https://gist.githubusercontent.com/deepcode-debug/b3ffe0a46df3f90a63c48983c3d653ea/raw/8cba6f17cb6e902181e561ae3675471ff571802f/deutsch_ubung.json",
+          "https://s3.ap-south-1.amazonaws.com/qubric.in/data/deutsch_ubung.json",
         vocabulary_2:
-          "https://gist.githubusercontent.com/deepcode-debug/da7e4ec19ebc56c802355d9784a7d4bc/raw/79900993fe53a769b82364e4d2e00af3ce825b47/deu_eng.json",
+          "https://s3.ap-south-1.amazonaws.com/qubric.in/data/deu_eng.json",
       };
       function normalizeVocabularyItem(item, source) {
         if (source === "vocabulary_1") {
